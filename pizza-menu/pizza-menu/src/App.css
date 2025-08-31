@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:  border-box;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Mono',sans-serif;
+  font-weight: 400;
+  color: #252525;
+  background-color: #f7f2e9;
+  border-bottom: 1.6rem solid #edc84b;
+  min-height: 100vh;
+  padding: 3.2rem;
+  padding-bottom: 6rem;
+}
+
+.header h1 {
+  color: #edc84b;
+  font-size: 3rem;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.title {
+  color:red;
+  font-size: 48px; 
+  text-transform: uppercase;
+}
+
+.cardImg {
+  max-width: auto;
+  max-height: 20rem;
+
+}
+
+.menuContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: start;
+  column-gap: 6rem;
+  row-gap: 1rem;
+}
+
+.menuContainer > h2 {
+  grid-column: 1 / span 3;
+  text-align: center;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  text-decoration: underline overline;
+  font-size: 2rem;
+}
+
+.menuContainer > p {
+    grid-column: 1 / span 3;
+    text-align: center;
+    max-width: 48rem;
+}
+
+.menuContainer li {
+  list-style-type: none;
+}
+
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
+  min-height: 100%;
+  padding: 1rem;
+}
+
+.cardContainer h2,
+.cardContainer p,
+.cardContainer img {
+  margin: 0;
+  padding: 0;
+}
+
+.cardImg {
+  height: 16rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cardContainer p {
+  min-height: 1rem; 
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+.cardContainer > h2 {
+  min-height: 3rem;
+}
+
+.cardContainer > h3 {
+  min-height: 4rem;
+  width: 100%; 
+  font-weight: 300;
+  margin-top: 3px;
+}
+
+.orderNow {
+  padding: 12px 16px;
+  background-color: #edc84b;
+  border-radius: 3px;
+  border: 1px solid white;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem 0;
+}

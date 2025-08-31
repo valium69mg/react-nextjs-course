@@ -1,0 +1,111 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Roboto Mono", monospace;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 4rem; 
+  cursor: pointer;
+  margin-right: 40%;
+  
+}
+
+.steps-component {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px; 
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke;
+  height: 28rem;
+  width: 50%;
+  border-radius: 1rem;
+}
+
+.circle {
+  width: 4rem;
+  height: 4rem;
+  background-color: lightgray;
+  border-radius: 50%;
+  place-self: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  grid-row: 2;         
+  grid-column: span 3;     
+  place-self: center; 
+  font-weight: 800;
+}
+
+.button {
+  border: 30%;
+  width: 30%;
+  height: 30%;
+  border-radius: 1rem;
+  border-style: none;
+  color: whitesmoke;
+  background-color: blueviolet;
+  font-weight: 800;
+  cursor: pointer;
+
+}
+
+.active {
+  color: whitesmoke;
+  background-color: blueviolet;
+}
+
+.button-left {
+  grid-row: 3;         
+  place-self: center; 
+}
+
+.button-right {
+  grid-row: 3;
+  grid-column: 3;         
+  place-self: center; 
+}
+
+.non-visible {
+  visibility: hidden;
+}
+
+.close-button {
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  background-color: none;
+}
+
+.close-button svg {
+  width: 80%;
+  height: 80%;
+}
+
+.close-button {
+  transition: transform 0.3s ease;
+}
+.close-button:hover {
+  transform: scale(1.1);
+}
