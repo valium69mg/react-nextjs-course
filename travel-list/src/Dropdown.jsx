@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 
-const Dropdown = () => {
+const Dropdown = ({setCount, count}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
   const options = Array.from({ length: 100 }, (_, i) => i + 1);
 
   const toggleDropdown = () => setIsOpen(prev => !prev);
-  const handleSelect = (value) => {
-    setSelected(value);
-    setIsOpen(false);
-  };
 
   return (
     <div className="dropdown-container">
       <div className="dropdown-header" onClick={toggleDropdown}>
-        {selected || 'Select number of items'}
+        {count || 'Select number of items'}
         <span className={`arrow ${isOpen ? 'open' : ''}`}>▾</span>
       </div>
 
@@ -24,7 +19,10 @@ const Dropdown = () => {
             <div
               key={num}
               className="dropdown-item"
-              onClick={() => handleSelect(num)}
+              onClick={() => {
+              setCount(num);
+              setIsOpen(false);
+              }}
             >
               {num}
             </div>

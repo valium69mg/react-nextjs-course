@@ -15,13 +15,13 @@ const items = [
   { id: 12, name: "tissue box", checked: false, quantity: 2 }
 ];
 
-export default function List() {
+export default function List({items, deleteItem}) {
   return (
     <section className="item-section">
       <ul className="items">
         {items.map(item => (
           <li key={item.id}>
-            <ListItem name={item.name} checked={item.checked} quantity={item.quantity}/>
+            <ListItem id={item.id} name={item.name} checked={item.checked} quantity={item.quantity} deleteItem={deleteItem}/>
           </li>
         ))}
       </ul>
@@ -29,12 +29,12 @@ export default function List() {
   );
 }
 
-function ListItem({ name, checked, quantity }) {
+function ListItem({id, name, checked, quantity, deleteItem }) {
   return (
     <div className="item">
         <input className="brown-select" type="checkbox" defaultChecked={checked} />
         <p>{quantity} {name} </p>
-        <button className="item-delete"> x </button>
+        <button onClick={() => deleteItem(id)} className="item-delete"> x </button>
     </div>
   );
 }
