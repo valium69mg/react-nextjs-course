@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from './Header';
 import Input from './Input';
 import List from './List';
@@ -25,16 +25,21 @@ export default function TravelApp() {
     const [items, setItems] = useState([]);
     const [itemName, setItemName] = useState("");
     const [count, setCount] = useState(0);
+    const [sortOption, setSortOption] = useState("Sort by input order");
+
+    const checkedCount = items.filter(item => item.checked).length;
+
+    useEffect(() => {console.log(items)});
 
     function addItems() {
       if (count === 0 || itemName === '') {
         return;
       }
-      let index = items.length == 0 ? 1 : items[items.length - 1].id + 1;
       let item = {
-        id: index,
+        id: Date.now().toLocaleString(),
         name: itemName,
-        quantity: count
+        quantity: count,
+        checked: false
       }
 
       setItems([item, ...items]);
@@ -47,12 +52,27 @@ export default function TravelApp() {
       setItems(updatedItems);
     }
 
+    function checkItem(id) {
+      const updatedItems = items.map(item => {
+        if (item.id === id) {
+          return { ...item, checked: !item.checked };
+        }
+        return item;
+      });
+      setItems(updatedItems);
+    }
+
+    let sortedItems = [...items];
+    if (sortOption === "Sort by name") {
+      sortedItems.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
 
     return <div className="App">
         <Header/>
         <Input itemName={itemName} count={count} setCount={setCount} setItemName={setItemName} addItems={addItems}/>
-        <List items={items} deleteItem={deleteItem}/>
-        <Filter/>
-        <Footer/>  
+        <List items={sortedItems} deleteItem={deleteItem} checkItem={checkItem}/>
+        <Filter sortOption={sortOption} setSortOption={setSortOption} />
+        <Footer itemQuantity={items.length} checked={checkedCount}/>  
       </div>
 }

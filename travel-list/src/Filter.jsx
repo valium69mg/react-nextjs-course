@@ -1,17 +1,16 @@
 import React from "react";
 import { useState } from "react";
 
-export default function Filter() {
+export default function Filter({ sortOption, setSortOption }) {
     return <section className="filter-section">
-        <DropdownFilter/>
+        <DropdownFilter selected={sortOption} setSelected={setSortOption}/>
         <button className="button"> Clear List </button>
     </section>
 }
 
-const DropdownFilter = () => {
+const DropdownFilter = ({ selected, setSelected }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const options = ["Sort by input order", "Sort by name"]
+  const options = ["Sort by input order", "Sort by name"];
 
   const toggleDropdown = () => setIsOpen(prev => !prev);
   const handleSelect = (value) => {
@@ -28,13 +27,13 @@ const DropdownFilter = () => {
 
       {isOpen && (
         <div className="dropdown-list">
-          {options.map(num => (
+          {options.map(option => (
             <div
-              key={num}
+              key={option}
               className="dropdown-item"
-              onClick={() => handleSelect(num)}
+              onClick={() => handleSelect(option)}
             >
-              {num}
+              {option}
             </div>
           ))}
         </div>
