@@ -1,0 +1,64 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  row-gap: 2rem;
+}
+
+.accordion {
+  width: 40%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 6px 24px;
+}
+
+.accordion-dropdown {
+  justify-self: right;
+  grid-column: 4 / 5;
+  cursor: pointer;
+  height: 50%;
+  width: 2rem;
+  border: none;
+  background-color: white;
+  font-size: 1.4rem;
+}
+
+.accordion-number {
+  justify-self: left; 
+  align-self: center;   
+}
+
+.accordion-title {
+  justify-self: left; 
+  align-self: center;   
+}
+
+.accordion-text {
+  grid-column: 1 / 5;
+  text-align: justify;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-text.show {
+  max-height: 500px;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-text.collapsing {
+  max-height: 0;
+  transition: max-height 0.05s ease-in;
+}
