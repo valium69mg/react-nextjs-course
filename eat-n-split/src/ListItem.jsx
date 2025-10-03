@@ -1,28 +1,29 @@
 import React from "react";
 
-export default function ListItem({name, status, balance, src}) {
+export default function ListItem({name, status, src, setCurrentId, currentId}) {
+
     return (
         <div className="listItem">
-            <img src="/tanjiro.webp" alt="Tanjiro Kamado" />
-            <NameAndStatus name={name} status={status} balance={balance}/>
-            <SelectButton action={"Select"}/>
+            <img src={src} alt="Tanjiro Kamado" />
+            <NameAndStatus name={name} status={status}/>
+            <SelectButton action={"Select"} setCurrentId={setCurrentId} currentId={currentId}/>
         </div>
     )
 }
 
-function NameAndStatus({name, status, balance}) {
+function NameAndStatus({name, status}) {
     return (
         <div className="nameAndStatusContainer">
             <h3> {name} </h3>
-            <p> {status} {name} {balance}$</p>
+            <p> {status} </p>
         </div>
     )
 }
 
-function SelectButton({action}) {
+function SelectButton({action, setCurrentId, currentId}) {
     return (
-        <div className="selectButtonContainer">
-            <h3> {action} </h3>
-        </div>
+        <button className="selectButtonContainer" onClick={() => setCurrentId(currentId)}>
+            {action}  
+        </button>
     )
 }
